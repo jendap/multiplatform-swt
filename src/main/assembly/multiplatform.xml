@@ -1,0 +1,48 @@
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+	<id>multiplatform</id>
+
+	<formats>
+		<format>zip</format>
+	</formats>
+
+	<includeBaseDirectory>false</includeBaseDirectory>
+
+	<dependencySets>
+		<!-- place all the dependencies into lib directory -->
+		<dependencySet>
+			<scope>runtime</scope>
+			<outputDirectory>${lib.directory}</outputDirectory>
+			<excludes>
+				<exclude>${artifact.groupId}:${artifact.artifactId}</exclude>
+			</excludes>
+		</dependencySet>
+
+		<!-- put myself into root of the package -->
+		<dependencySet>
+			<scope>runtime</scope>
+			<includes>
+				<include>${artifact.groupId}:${artifact.artifactId}</include>
+			</includes>
+		</dependencySet>
+
+		<!-- another way to include eclipse dependencies -->
+		<!-- <dependencySet> -->
+		<!-- <scope>provided</scope> -->
+		<!-- <outputDirectory>${lib.directory}</outputDirectory> -->
+		<!-- <includes> -->
+		<!-- <include>org.eclipse.swt:*</include> -->
+		<!-- </includes> -->
+		<!-- </dependencySet> -->
+	</dependencySets>
+
+	<fileSets>
+		<!-- ths fileSet actually copy the swt jars into final package -->
+		<fileSet>
+			<directory>${project.build.directory}/swt-dependency</directory>
+			<outputDirectory>${lib.directory}</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>
