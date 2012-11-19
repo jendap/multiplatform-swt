@@ -22,17 +22,18 @@
 			<version>${project.version}</version>
 			<classifier>multiplatform</classifier>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.2</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.eclipse.swt</groupId>
 			<artifactId>${swt.artifactId}</artifactId>
 			<version>${swt.version}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.2</version>
 		</dependency>
 	</dependencies>
 
@@ -46,12 +47,13 @@
 				<version>2.3</version>
 				<configuration>
 					<archive>
-						<!-- We put the main class and libraries into manifest. This way you -->
-						<!-- can run your app using double-click on your jar file or using -->
-						<!-- java -jar your_jar_file_name.jar from command line. -->
-						<!-- There's SWT-Version being passed in manifest from maven -->
-						<!-- to MultiPlatformSwtHelper. It is used in runtime -->
-						<!-- to construct the filename of the correct jar. -->
+						<!-- We put the main class and class path into manifest. This -->
+						<!-- enable you to run the app using double-click on your jar file -->
+						<!-- or using java -jar your_jar_file_name.jar from command line. -->
+						<!-- Set the mainClass to MultiPlatformSwtHelper and add your -->
+						<!-- main class as Rsrc-Main-Class in manifestEntries. -->
+						<!-- Optionaly set the mainClass and Rsrc-Main-Class in archive -->
+						<!-- section of the jar plugin if you're not useing assembly plugin. -->
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<mainClass>${main.class}</mainClass>
