@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
@@ -28,19 +29,18 @@ public class MultiPlatformSwtHelper {
 			URL.setURLStreamHandlerFactory(new RsrcURLStreamHandlerFactory(parentClassLoader));
 			final String swtJarPath = getSwtPlatformDependentJarPath();
 			final URL swtRsrcUrl = this.convertPathToRsrcUrl(swtJarPath);
-			final String classPath = this.extractValueFromManifest(JIJConstants.REDIRECTED_CLASS_PATH_MANIFEST_NAME);
-			final String[] classPathElements;
-			if (classPath != null) {
-				classPathElements = classPath.split(" ");
-			} else {
-				classPathElements = new String[] {};
+			final List<String> classPathElements = new ArrayList<String>();
+			final String redirectedClassPath = this.extractValueFromManifest(JIJConstants.REDIRECTED_CLASS_PATH_MANIFEST_NAME);
+			if (redirectedClassPath != null) {
+				classPathElements.addAll(Arrays.asList(redirectedClassPath.split(" ")));
 			}
 			final List<URL> rsrcUrls = new ArrayList<URL>();
+			rsrcUrls.addAll(Arrays.asList(((URLClassLoader) parentClassLoader).getURLs()));
 			rsrcUrls.add(swtRsrcUrl);
 			for (final String classPathElement : classPathElements) {
 				rsrcUrls.add(this.convertPathToRsrcUrl(classPathElement));
 			}
-			return new URLClassLoader(rsrcUrls.toArray(new URL[] {}), parentClassLoader);
+			return new ReverseOrderURLClassLoader(rsrcUrls.toArray(new URL[] {}), parentClassLoader);
 		} catch (final MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
