@@ -1,6 +1,7 @@
 package com.github.jendap.multiplatformswt.loader;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -8,6 +9,7 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Properties;
 import java.util.jar.Manifest;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
@@ -18,6 +20,7 @@ import org.eclipse.jdt.internal.jarinjarloader.RsrcURLStreamHandlerFactory;
 
 public class MultiPlatformSwtHelper {
 	private final static Logger LOGGER = Logger.getLogger(MultiPlatformSwtHelper.class.getName());
+	private static final String MULTIPLATFORM_SWT_PROPERTIES = "META-INF/multiplatform-swt.properties";
 	private static final String DEFAULT_JAR_FILES_PATH = "lib";
 
 	private final String jarFilesPath;
@@ -123,8 +126,20 @@ public class MultiPlatformSwtHelper {
 	}
 
 	public String getSwtVersionSuffix() {
-		final String swtVersion = this.extractValueFromManifest("SWT-Version");
+		final String swtVersion = this.extractValueFromMultiplatformSwtProperties("swt.version");
 		return (swtVersion != null) ? "-" + swtVersion : "";
+	}
+
+	private String extractValueFromMultiplatformSwtProperties(final String key) {
+		final ClassLoader classLoader = this.getClass().getClassLoader();
+		final InputStream inputStream = classLoader.getResourceAsStream(MULTIPLATFORM_SWT_PROPERTIES);
+		final Properties properties = new Properties();
+		try {
+			properties.load(inputStream);
+		} catch (final IOException e) {
+			LOGGER.log(Level.WARNING, "Unable to read " + MULTIPLATFORM_SWT_PROPERTIES, e);
+		}
+		return properties.getProperty(key);
 	}
 
 	private String extractValueFromManifest(final String key) {
