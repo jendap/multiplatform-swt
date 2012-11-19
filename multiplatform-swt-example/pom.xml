@@ -11,7 +11,6 @@
 
 	<properties>
 		<swt.version>3.8</swt.version>
-		<lib.directory>lib</lib.directory>
 		<main.class>com.github.jendap.multiplatformswt.loader.MultiPlatformSwtHelper</main.class>
 		<rsrc.main.class>com.github.jendap.multiplatformswt.example.SwtHelloWorld</rsrc.main.class>
 	</properties>
@@ -22,6 +21,11 @@
 			<artifactId>multiplatform-swt-loader</artifactId>
 			<version>${project.version}</version>
 			<classifier>multiplatform</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.2</version>
 		</dependency>
 
 		<dependency>
@@ -54,12 +58,11 @@
 						</manifest>
 						<manifestEntries>
 							<Rsrc-Main-Class>${rsrc.main.class}</Rsrc-Main-Class>
-							<Rsrc-Class-Path>${lib.directory}/${project.artifactId}-${project.version}.jar</Rsrc-Class-Path>
 						</manifestEntries>
 					</archive>
-					<descriptors>
-						<descriptor>src/main/assembly/multiplatform.xml</descriptor>
-					</descriptors>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
 				</configuration>
 				<executions>
 					<execution>

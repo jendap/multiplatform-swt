@@ -12,11 +12,17 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SwtHelloWorld {
+	private static final Logger log = LoggerFactory.getLogger(SwtHelloWorld.class);
+
 	public static void main(final String[] args) {
+		log.info("Launching {}...", SwtHelloWorld.class.getSimpleName());
 		final SwtHelloWorld swtHelloWorld = new SwtHelloWorld();
 		swtHelloWorld.swtHtmlHelloWorld();
+		log.info("DONE");
 	}
 
 	public void swtHelloWorld() {

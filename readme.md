@@ -14,10 +14,9 @@ Usage
 * Copy and paste pretty much the whole pom.xml into your pom.xml.
   - Copy the properties and change `rsrc.main.class` to point to your intended main
   - Copy the dependencies including scopes and classifiers
-  - Copy `assembly` plugin with its configuration
+  - Copy `assembly` plugin with its configuration (or put the Rsrc-Main-Class into jar plugin)
   - Copy `repositories` section
   - Copy `profiles` section
-* Copy the assembly plugin configuration - file `src/main/assembly/multiarch.xml`
 * Congratulations! You've done it.
 
 * BTW: build it with "mvn package"
