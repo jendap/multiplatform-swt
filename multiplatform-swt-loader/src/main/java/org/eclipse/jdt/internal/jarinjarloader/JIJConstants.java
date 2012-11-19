@@ -20,7 +20,7 @@ package org.eclipse.jdt.internal.jarinjarloader;
  * @since 3.6
  */
 public final class JIJConstants {
-//	public static final String REDIRECTED_CLASS_PATH_MANIFEST_NAME  = "Rsrc-Class-Path";  //$NON-NLS-1$
+	public static final String REDIRECTED_CLASS_PATH_MANIFEST_NAME  = "Rsrc-Class-Path";  //$NON-NLS-1$
 	public static final String REDIRECTED_MAIN_CLASS_MANIFEST_NAME  = "Rsrc-Main-Class";  //$NON-NLS-1$
 //	public static final String DEFAULT_REDIRECTED_CLASSPATH         = "";  //$NON-NLS-1$
 //	public static final String MAIN_METHOD_NAME                     = "main";  //$NON-NLS-1$

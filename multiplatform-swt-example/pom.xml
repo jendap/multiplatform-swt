@@ -54,7 +54,7 @@
 						</manifest>
 						<manifestEntries>
 							<Rsrc-Main-Class>${rsrc.main.class}</Rsrc-Main-Class>
-							<Class-Path>${lib.directory}/${project.artifactId}-${project.version}.jar</Class-Path>
+							<Rsrc-Class-Path>${lib.directory}/${project.artifactId}-${project.version}.jar</Rsrc-Class-Path>
 						</manifestEntries>
 					</archive>
 					<descriptors>

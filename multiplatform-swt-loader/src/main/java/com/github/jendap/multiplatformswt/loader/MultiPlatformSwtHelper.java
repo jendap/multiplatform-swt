@@ -21,21 +21,6 @@ import org.eclipse.jdt.internal.jarinjarloader.RsrcURLStreamHandlerFactory;
 public class MultiPlatformSwtHelper {
 	private final static Logger LOGGER = Logger.getLogger(MultiPlatformSwtHelper.class.getName());
 	private static final String MULTIPLATFORM_SWT_PROPERTIES = "META-INF/multiplatform-swt.properties";
-	private static final String DEFAULT_JAR_FILES_PATH = "lib";
-
-	private final String jarFilesPath;
-
-	public MultiPlatformSwtHelper() {
-		this(null);
-	}
-
-	public MultiPlatformSwtHelper(final String jarFilesPath) {
-		if (jarFilesPath == null) {
-			this.jarFilesPath = DEFAULT_JAR_FILES_PATH;
-		} else {
-			this.jarFilesPath = jarFilesPath;
-		}
-	}
 
 	public ClassLoader getSwtPlatformDependentJarInJarClassLoader() {
 		try {
@@ -43,7 +28,7 @@ public class MultiPlatformSwtHelper {
 			URL.setURLStreamHandlerFactory(new RsrcURLStreamHandlerFactory(parentClassLoader));
 			final String swtJarPath = getSwtPlatformDependentJarPath();
 			final URL swtRsrcUrl = this.convertPathToRsrcUrl(swtJarPath);
-			final String classPath = this.extractValueFromManifest("Class-Path");
+			final String classPath = this.extractValueFromManifest(JIJConstants.REDIRECTED_CLASS_PATH_MANIFEST_NAME);
 			final String[] classPathElements;
 			if (classPath != null) {
 				classPathElements = classPath.split(" ");
@@ -90,7 +75,7 @@ public class MultiPlatformSwtHelper {
 	}
 
 	public String getSwtPlatformDependentJarPath() {
-		return jarFilesPath + "/" + "org.eclipse.swt" + getSwtFileNameOsSuffix() +
+		return this.getLibDirectory() + "/" + "org.eclipse.swt" + getSwtFileNameOsSuffix() +
 				getSwtFileArchSuffix() + getSwtVersionSuffix() + ".jar";
 	}
 
@@ -123,6 +108,10 @@ public class MultiPlatformSwtHelper {
 			throw new RuntimeException("Unsupported OS name: " + osName);
 		}
 		return swtFileNameOsPart;
+	}
+
+	private String getLibDirectory() {
+		return this.extractValueFromMultiplatformSwtProperties("lib.directory");
 	}
 
 	public String getSwtVersionSuffix() {
