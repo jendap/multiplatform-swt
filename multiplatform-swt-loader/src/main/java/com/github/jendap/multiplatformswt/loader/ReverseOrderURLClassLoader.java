@@ -14,27 +14,25 @@ public class ReverseOrderURLClassLoader extends URLClassLoader {
 	}
 
 	@Override
-	protected Class<?> loadClass(final String name, final boolean resolve) throws ClassNotFoundException {
-		synchronized (getClassLoadingLock(name)) {
-			// First, check if the class has already been loaded
-			Class<?> c = findLoadedClass(name);
-			if (c == null) {
-				// invoke findClass in order to find the class.
-				try {
-					c = findClass(name);
-				} catch (ClassNotFoundException e) {
-					// ClassNotFoundException thrown if class not found
-					// from the non-null parent class loader
-				}
+	protected synchronized Class<?> loadClass(final String name, final boolean resolve) throws ClassNotFoundException {
+		// First, check if the class has already been loaded
+		Class<?> c = findLoadedClass(name);
+		if (c == null) {
+			// invoke findClass in order to find the class.
+			try {
+				c = findClass(name);
+			} catch (ClassNotFoundException e) {
+				// ClassNotFoundException thrown if class not found
+				// from the non-null parent class loader
 			}
-			if (c == null) {
-				// If still not found, then try call parent
-				c = getParent().loadClass(name);
-			}
-			if (resolve) {
-				resolveClass(c);
-			}
-			return c;
 		}
+		if (c == null && getParent() != null) {
+			// If still not found, then try call parent
+			c = getParent().loadClass(name);
+		}
+		if (resolve) {
+			resolveClass(c);
+		}
+		return c;
 	}
 }
