@@ -197,7 +197,7 @@
 			<activation>
 				<os>
 					<family>macosx</family>
-					<arch>amd64</arch>
+					<arch>x86_64</arch>
 				</os>
 			</activation>
 			<properties>
@@ -209,7 +209,7 @@
 			<activation>
 				<os>
 					<family>windows</family>
-					<arch>i386</arch>
+					<arch>x86</arch>
 				</os>
 			</activation>
 			<properties>
