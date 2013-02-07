@@ -17,9 +17,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>com.github.jendap</groupId>
 			<artifactId>multiplatform-swt-loader</artifactId>
-			<version>${project.version}</version>
+			<version>4.2.1</version>
 			<classifier>multiplatform</classifier>
 		</dependency>
 
