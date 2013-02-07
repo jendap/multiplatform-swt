@@ -11,15 +11,25 @@ all the other eclipse plugins. But this approach is sometimes better.
 Usage
 -----
 
-* Copy and paste pretty much the whole pom.xml into your pom.xml.
+* Note that the project consists of two modules.
+* First build and install the swt-multiplatform-loader module (you will use
+  the swt-multiplatform-loader-VERSION-multiplatform.jar as a dependency in you project)
+``` bash
+mvn install
+```
+* Copy and paste pretty much the whole pom.xml from swt-multiplatform-example into your pom.xml.
   - Copy the properties and change `rsrc.main.class` to point to your intended main
   - Copy the dependencies including scopes and classifiers
-  - Copy `assembly` plugin with its configuration (or put the Rsrc-Main-Class into jar plugin)
+  - Copy `assembly` plugin with its configuration (or put the manifestEntries section of archive
+    section including Rsrc-Main-Class into a jar plugin or shade plugin or whatever you use)
   - Copy `repositories` section
   - Copy `profiles` section
 * Congratulations! You've done it.
 
-* BTW: build it with "mvn package"
+* BTW: build it with
+``` bash
+mvn package
+```
 
 
 How it works
