@@ -4,13 +4,13 @@
 	<parent>
 		<artifactId>multiplatform-swt</artifactId>
 		<groupId>com.github.jendap</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>4.2.1</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>multiplatform-swt-loader</artifactId>
 
 	<properties>
-		<swt.version>3.8</swt.version>
+		<swt.version>4.2.1</swt.version>
 		<lib.directory>lib</lib.directory>
 	</properties>
 
@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -48,7 +48,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.3</version>
+				<version>2.6</version>
 				<executions>
 					<execution>
 						<id>copy</id>
@@ -100,7 +100,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.3</version>
+				<version>2.4</version>
 				<configuration>
 					<descriptors>
 						<descriptor>src/main/assembly/multiplatform.xml</descriptor>
@@ -122,7 +122,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.10</version>
+				<version>2.13</version>
 				<configuration>
 					<workingDirectory>${project.build.directory}</workingDirectory>
 					<additionalClasspathElements>

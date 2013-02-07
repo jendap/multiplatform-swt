@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jendap</groupId>
 	<artifactId>multiplatform-swt</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>4.2.1</version>
 	<packaging>pom</packaging>
 
 	<name>multiplatform-swt</name>
@@ -14,6 +14,10 @@
 		<module>multiplatform-swt-loader</module>
 		<module>multiplatform-swt-example</module>
 	</modules>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
 
 	<scm>
 		<url>https://github.com/jendap/multiplatform-swt.git</url>
@@ -51,7 +55,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.0</version>
 				<configuration>
 					<compilerVersion>${jdk.version}</compilerVersion>
 					<source>${jdk.version}</source>
@@ -64,7 +68,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.6</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
