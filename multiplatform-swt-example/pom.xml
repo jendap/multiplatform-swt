@@ -10,68 +10,66 @@
 	<artifactId>multiplatform-swt-example</artifactId>
 
 	<properties>
+		<main.class>com.github.jendap.multiplatformswt.example.SwtHelloWorld</main.class>
+
 		<swt.version>4.4</swt.version>
-		<main.class>com.github.jendap.multiplatformswt.loader.MultiPlatformSwtHelper</main.class>
-		<rsrc.main.class>com.github.jendap.multiplatformswt.example.SwtHelloWorld</rsrc.main.class>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.github.jendap</groupId>
-			<artifactId>multiplatform-swt-loader</artifactId>
-			<version>${project.version}</version>
-			<classifier>multiplatform</classifier>
-		</dependency>
-
 		<dependency>
 			<groupId>org.eclipse.swt</groupId>
 			<artifactId>${swt.artifactId}</artifactId>
 			<version>${swt.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.10</version>
-		</dependency>
 	</dependencies>
 
 	<build>
-		<defaultGoal>package</defaultGoal>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.4</version>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<stripVersion>true</stripVersion>
+							<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<artifactItems>
+								<dependency>
+									<groupId>com.github.jendap</groupId>
+									<artifactId>multiplatform-swt-loader</artifactId>
+									<version>${swt.version}</version>
+									<classifier>multiplatform</classifier>
+								</dependency>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.2.1.RELEASE</version>
 				<configuration>
-					<archive>
-						<!-- We put the main class and class path into manifest. This -->
-						<!-- enable you to run the app using double-click on your jar file -->
-						<!-- or using java -jar your_jar_file_name.jar from command line. -->
-						<!-- Set the mainClass to MultiPlatformSwtHelper and add your -->
-						<!-- main class as Rsrc-Main-Class in manifestEntries. -->
-						<!-- Optionaly set the mainClass and Rsrc-Main-Class in archive -->
-						<!-- section of the jar plugin if you're not useing assembly plugin. -->
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<mainClass>${main.class}</mainClass>
-						</manifest>
-						<manifestEntries>
-							<Rsrc-Main-Class>${rsrc.main.class}</Rsrc-Main-Class>
-						</manifestEntries>
-					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<mainClass>${main.class}</mainClass>
+					<excludes>
+						<exclude>
+							<groupId>org.eclipse.swt</groupId>
+							<artifactId>${swt.artifactId}</artifactId>
+						</exclude>
+					</excludes>
 				</configuration>
 				<executions>
 					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
 						<goals>
-							<goal>single</goal>
+							<goal>repackage</goal>
 						</goals>
 					</execution>
 				</executions>

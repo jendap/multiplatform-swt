@@ -1,5 +1,7 @@
 package com.github.jendap.multiplatformswt.example;
 
+import java.util.logging.Logger;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTError;
 import org.eclipse.swt.browser.Browser;
@@ -12,19 +14,17 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SwtHelloWorld {
-	private static final Logger logger = LoggerFactory.getLogger(SwtHelloWorld.class);
+	private final static Logger LOGGER = Logger.getLogger(SwtHelloWorld.class.getName());
 
 	public static void main(final String[] args) {
-		logger.info("Launching {}...", SwtHelloWorld.class.getSimpleName());
+		LOGGER.info("Launching " + SwtHelloWorld.class.getSimpleName() + "...");
 		final SwtHelloWorld swtHelloWorld = new SwtHelloWorld();
 		swtHelloWorld.swtHelloWorld();
-//		logger.info("This is slow on java 8 - I'm not sure why yet...");
-//		swtHelloWorld.readXmlFromResource(1000);
-		logger.info("DONE");
+		// LOGGER.info("This is slow on java 8 - I'm not sure why yet...");
+		// swtHelloWorld.readXmlFromResource(1000);
+		LOGGER.info("DONE");
 	}
 
 	public void swtHelloWorld() {
@@ -54,7 +54,7 @@ public class SwtHelloWorld {
 		shell.setSize(800, 450);
 		try {
 			final Browser browser = new Browser(shell, SWT.NONE);
-//			browser.setText("<html><body>Hello world!</body></html>");
+			// browser.setText("<html><body>Hello world!</body></html>");
 			browser.setUrl("http://lmgtfy.com/?q=meow");
 			browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		} catch (final SWTError e) {

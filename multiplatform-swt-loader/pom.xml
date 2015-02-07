@@ -10,11 +10,20 @@
 	<artifactId>multiplatform-swt-loader</artifactId>
 
 	<properties>
-		<swt.version>4.4</swt.version>
 		<lib.directory>lib</lib.directory>
+
+		<swt.version>4.4</swt.version>
+		<spring-boot-loader.version>1.2.1.RELEASE</spring-boot-loader.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-loader</artifactId>
+			<version>${spring-boot-loader.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.eclipse.swt</groupId>
 			<artifactId>${swt.artifactId}</artifactId>

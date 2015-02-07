@@ -1,19 +1,19 @@
 package com.github.jendap.multiplatformswt.example;
 
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XmlReaderExample {
-	private static final Logger logger = LoggerFactory.getLogger(XmlReaderExample.class);
+	private final static Logger LOGGER = Logger.getLogger(XmlReaderExample.class.getName());
 
 	private static final String DEFAULT_TEST_XML_FILE_NAME = "/test.xml";
 
@@ -25,7 +25,7 @@ public class XmlReaderExample {
 			final Document document = dBuilder.parse(testXml);
 			return document.getChildNodes().getLength();
 		} catch (final Exception e) {
-			logger.error("Unable to read {}", DEFAULT_TEST_XML_FILE_NAME, e);
+			LOGGER.log(Level.SEVERE, "Unable to read " + DEFAULT_TEST_XML_FILE_NAME, e);
 			return 0;
 		}
 	}
@@ -53,7 +53,7 @@ public class XmlReaderExample {
 				}
 			}
 		} catch (final Exception e) {
-			logger.error("Unable to print {}", DEFAULT_TEST_XML_FILE_NAME, e);
+			LOGGER.log(Level.SEVERE, "Unable to print " + DEFAULT_TEST_XML_FILE_NAME, e);
 		}
 	}
 }

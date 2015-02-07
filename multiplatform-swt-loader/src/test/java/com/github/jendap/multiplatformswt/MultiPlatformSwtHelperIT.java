@@ -28,8 +28,7 @@ public class MultiPlatformSwtHelperIT {
 
 	@Test
 	public void importSwtJarInitializedURLClassLoaderTest() throws ClassNotFoundException, MalformedURLException {
-		final MultiPlatformSwtHelper multiPlatformSwtHelper = new MultiPlatformSwtHelper();
-		final URL swtJarUrl = multiPlatformSwtHelper.getSwtPlatformDependentJarFileUrl();
+		final URL swtJarUrl = MultiPlatformSwtHelper.getSwtPlatformDependentJarFileUrl();
 		final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[] { swtJarUrl });
 		final Class<?> someSwtClass = urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
 		assertNotNull(someSwtClass);
