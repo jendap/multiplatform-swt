@@ -21,7 +21,7 @@ public class SwtHelloWorld {
 	public static void main(final String[] args) {
 		log.info("Launching {}...", SwtHelloWorld.class.getSimpleName());
 		final SwtHelloWorld swtHelloWorld = new SwtHelloWorld();
-		swtHelloWorld.swtHtmlHelloWorld();
+		swtHelloWorld.swtHelloWorld();
 		log.info("DONE");
 	}
 
