@@ -1,6 +1,6 @@
 package com.github.jendap.multiplatformswt;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,8 +21,8 @@ public class MultiPlatformSwtHelperIT {
 
 	@Test(expected = ClassNotFoundException.class)
 	public void importSwtJarUninitializedURLClassLoaderTest() throws ClassNotFoundException, MalformedURLException {
-		final URL swtJArUrl = new URL("file:/non-existing-path");
-		final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[] { swtJArUrl });
+		final URL swtJarUrl = new URL("file:/non-existing-path");
+		final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[] { swtJarUrl });
 		urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
 	}
 

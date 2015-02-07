@@ -4,13 +4,13 @@
 	<parent>
 		<artifactId>multiplatform-swt</artifactId>
 		<groupId>com.github.jendap</groupId>
-		<version>4.2.1</version>
+		<version>4.4</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>multiplatform-swt-example</artifactId>
 
 	<properties>
-		<swt.version>4.2.1</swt.version>
+		<swt.version>4.4</swt.version>
 		<main.class>com.github.jendap.multiplatformswt.loader.MultiPlatformSwtHelper</main.class>
 		<rsrc.main.class>com.github.jendap.multiplatformswt.example.SwtHelloWorld</rsrc.main.class>
 	</properties>
@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>com.github.jendap</groupId>
 			<artifactId>multiplatform-swt-loader</artifactId>
-			<version>4.2.1</version>
+			<version>${project.version}</version>
 			<classifier>multiplatform</classifier>
 		</dependency>
 
@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.2</version>
+			<version>1.7.10</version>
 		</dependency>
 	</dependencies>
 

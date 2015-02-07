@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jendap</groupId>
 	<artifactId>multiplatform-swt</artifactId>
-	<version>4.2.1</version>
+	<version>4.4</version>
 	<packaging>pom</packaging>
 
 	<name>multiplatform-swt</name>
@@ -55,7 +55,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.1</version>
 				<configuration>
 					<compilerVersion>${jdk.version}</compilerVersion>
 					<source>${jdk.version}</source>
