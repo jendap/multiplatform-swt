@@ -16,13 +16,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SwtHelloWorld {
-	private static final Logger log = LoggerFactory.getLogger(SwtHelloWorld.class);
+	private static final Logger logger = LoggerFactory.getLogger(SwtHelloWorld.class);
 
 	public static void main(final String[] args) {
-		log.info("Launching {}...", SwtHelloWorld.class.getSimpleName());
+		logger.info("Launching {}...", SwtHelloWorld.class.getSimpleName());
 		final SwtHelloWorld swtHelloWorld = new SwtHelloWorld();
 		swtHelloWorld.swtHelloWorld();
-		log.info("DONE");
+//		logger.info("This is slow on java 8 - I'm not sure why yet...");
+//		swtHelloWorld.readXmlFromResource(1000);
+		logger.info("DONE");
 	}
 
 	public void swtHelloWorld() {
@@ -69,5 +71,12 @@ public class SwtHelloWorld {
 				display.sleep();
 		}
 		display.dispose();
+	}
+
+	public void readXmlFromResource(final int iterations) {
+		final XmlReaderExample xmlReaderExample = new XmlReaderExample();
+		for (int i = 0; i < iterations; i++) {
+			xmlReaderExample.readTestXml();
+		}
 	}
 }
