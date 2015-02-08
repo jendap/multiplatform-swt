@@ -21,7 +21,7 @@ import java.util.List;
 import org.springframework.boot.loader.archive.Archive;
 import org.springframework.boot.loader.util.AsciiBytes;
 
-import com.github.jendap.multiplatformswt.loader.MultiPlatformSwtHelper;
+import com.janprach.multiplatformswt.loader.MultiPlatformSwtHelper;
 
 /**
  * This is copied from original {@link JarLauncher} spring-boot-loader project.

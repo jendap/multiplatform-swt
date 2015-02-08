@@ -1,4 +1,4 @@
-package com.github.jendap.multiplatformswt.loader;
+package com.janprach.multiplatformswt.loader;
 
 import java.io.IOException;
 import java.io.InputStream;

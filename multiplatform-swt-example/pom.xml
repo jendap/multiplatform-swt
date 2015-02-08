@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>multiplatform-swt</artifactId>
-		<groupId>com.github.jendap</groupId>
+		<groupId>com.janprach.multiplatform-swt</groupId>
 		<version>4.4</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>multiplatform-swt-example</artifactId>
 
 	<properties>
-		<main.class>com.github.jendap.multiplatformswt.example.SwtHelloWorld</main.class>
+		<main.class>com.janprach.multiplatformswt.example.SwtHelloWorld</main.class>
 
 		<swt.version>4.4</swt.version>
 	</properties>
@@ -38,14 +38,13 @@
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<stripVersion>true</stripVersion>
 							<outputDirectory>${project.build.outputDirectory}</outputDirectory>
 							<overWriteIfNewer>true</overWriteIfNewer>
 							<artifactItems>
 								<dependency>
-									<groupId>com.github.jendap</groupId>
+									<groupId>com.janprach.multiplatform-swt</groupId>
 									<artifactId>multiplatform-swt-loader</artifactId>
-									<version>${swt.version}</version>
+									<version>4.4</version>
 									<classifier>multiplatform</classifier>
 								</dependency>
 							</artifactItems>

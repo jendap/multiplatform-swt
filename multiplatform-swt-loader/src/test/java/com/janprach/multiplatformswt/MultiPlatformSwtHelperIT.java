@@ -1,4 +1,4 @@
-package com.github.jendap.multiplatformswt;
+package com.janprach.multiplatformswt;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ import java.net.URLClassLoader;
 
 import org.junit.Test;
 
-import com.github.jendap.multiplatformswt.loader.MultiPlatformSwtHelper;
+import com.janprach.multiplatformswt.loader.MultiPlatformSwtHelper;
 
 public class MultiPlatformSwtHelperIT {
 	private static final String SOME_SWT_CLASS_NAME = "org.eclipse.swt.SWT";

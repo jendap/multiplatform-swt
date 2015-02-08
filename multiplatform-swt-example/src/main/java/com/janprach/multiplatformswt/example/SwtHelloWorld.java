@@ -1,4 +1,4 @@
-package com.github.jendap.multiplatformswt.example;
+package com.janprach.multiplatformswt.example;
 
 import java.util.logging.Logger;
 
