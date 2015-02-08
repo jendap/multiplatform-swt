@@ -1,19 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<artifactId>multiplatform-swt</artifactId>
-		<groupId>com.janprach.multiplatform-swt</groupId>
-		<version>4.4</version>
-		<relativePath>..</relativePath>
-	</parent>
+	<groupId>com.janprach.multiplatform-swt</groupId>
 	<artifactId>multiplatform-swt-loader</artifactId>
+	<version>4.4</version>
 
 	<properties>
 		<lib.directory>lib</lib.directory>
 
 		<swt.version>4.4</swt.version>
 		<spring-boot-loader.version>1.2.1.RELEASE</spring-boot-loader.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 
 	<dependencies>
