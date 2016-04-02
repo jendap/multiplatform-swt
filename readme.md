@@ -82,6 +82,10 @@ Notes
   that will be.
 * It would be nice to use p2 repository resolver without tycho and osgi. The question is whether
   it's possible.
+* It would be nice to use maven extension for platform variables instead of the many profiles
+  one has to copy. See https://github.com/trustin/os-maven-plugin. But we would have to rename
+  the jar files first or modify the plugin so that strings would match the swt naming
+  (osx => macosx, x86_32 => x86 and windows => win32).
 
 
 #### Building platform dependent stuff
