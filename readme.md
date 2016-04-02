@@ -1,8 +1,8 @@
 Multiplatform SWT
 ==================
 
-This project show how to make multiplatform swt project using maven without osgi. Linux, macosx
-and windows are supported in both 32-bit and 64 bit versions.
+This project show how to make multiplatform swt project using maven without osgi. Linux and
+windows are supported in both 32-bit and 64 bit versions, macosx has only 64 bit support.
 
 You are advised to use tycho to build swt based projects! Not this approach. That way you can reuse
 all the other eclipse plugins. But this approach is sometimes better.

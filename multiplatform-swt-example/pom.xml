@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.janprach.multiplatform-swt</groupId>
 	<artifactId>multiplatform-swt-example</artifactId>
-	<version>4.4</version>
+	<version>4.5.2</version>
 
 	<properties>
 		<main.class>com.janprach.multiplatformswt.example.SwtHelloWorld</main.class>
 
-		<swt.version>4.4</swt.version>
+		<swt.version>4.5.2</swt.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
@@ -44,7 +44,7 @@
 								<dependency>
 									<groupId>com.janprach.multiplatform-swt</groupId>
 									<artifactId>multiplatform-swt-loader</artifactId>
-									<version>4.4</version>
+									<version>${swt.version}</version>
 									<classifier>multiplatform</classifier>
 								</dependency>
 							</artifactItems>
@@ -109,18 +109,6 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>macosx32</id>
-			<activation>
-				<os>
-					<family>macosx</family>
-					<arch>i386</arch>
-				</os>
-			</activation>
-			<properties>
-				<swt.artifactId>org.eclipse.swt.cocoa.macosx</swt.artifactId>
-			</properties>
-		</profile>
-		<profile>
 			<id>macosx64</id>
 			<activation>
 				<os>
@@ -159,13 +147,11 @@
 	</profiles>
 
 	<repositories>
-		<!-- There's no official public maven eclipse repository yet. But a lot -->
-		<!-- of people miss it. Jan-Hendrik Peters has created swt-release-fetcher -->
-		<!-- (https://github.com/hennr/swt-release-fetcher) and republish the swt -->
-		<!-- jars as maven repo on google code. -->
+		<!-- There's no official public maven eclipse repository yet. Leon Blakey -->
+		<!-- has created https://github.com/maven-eclipse/maven-eclipse.github.io. -->
 		<repository>
-			<id>swt-repo-by-hennr</id>
-			<url>http://swt-repo.googlecode.com/svn/repo/</url>
+			<id>maven-eclipse-repo</id>
+			<url>http://maven-eclipse.github.io/maven</url>
 		</repository>
 	</repositories>
 </project>

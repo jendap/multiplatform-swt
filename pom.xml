@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.janprach.multiplatform-swt</groupId>
 	<artifactId>multiplatform-swt</artifactId>
-	<version>4.4</version>
+	<version>4.5.2</version>
 	<packaging>pom</packaging>
 
 	<name>multiplatform-swt</name>
