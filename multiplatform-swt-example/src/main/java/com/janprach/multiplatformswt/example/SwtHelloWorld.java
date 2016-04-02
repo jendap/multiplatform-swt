@@ -22,8 +22,6 @@ public class SwtHelloWorld {
 		LOGGER.info("Launching " + SwtHelloWorld.class.getSimpleName() + "...");
 		final SwtHelloWorld swtHelloWorld = new SwtHelloWorld();
 		swtHelloWorld.swtHelloWorld();
-		// LOGGER.info("This is slow on java 8 - I'm not sure why yet...");
-		// swtHelloWorld.readXmlFromResource(1000);
 		LOGGER.info("DONE");
 	}
 
@@ -71,12 +69,5 @@ public class SwtHelloWorld {
 				display.sleep();
 		}
 		display.dispose();
-	}
-
-	public void readXmlFromResource(final int iterations) {
-		final XmlReaderExample xmlReaderExample = new XmlReaderExample();
-		for (int i = 0; i < iterations; i++) {
-			xmlReaderExample.readTestXml();
-		}
 	}
 }
