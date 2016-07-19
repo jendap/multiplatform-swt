@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.janprach.multiplatform-swt</groupId>
 	<artifactId>multiplatform-swt-example</artifactId>
-	<version>4.5.2</version>
+	<version>4.6</version>
 
 	<properties>
 		<main.class>com.janprach.multiplatformswt.example.SwtHelloWorld</main.class>
 
-		<swt.version>4.5.2</swt.version>
+		<swt.version>4.6</swt.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
@@ -55,7 +55,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>1.3.3.RELEASE</version>
+				<version>1.3.6.RELEASE</version>
 				<configuration>
 					<mainClass>${main.class}</mainClass>
 					<excludes>

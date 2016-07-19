@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.janprach.multiplatform-swt</groupId>
 	<artifactId>multiplatform-swt-loader</artifactId>
-	<version>4.5.2</version>
+	<version>4.6</version>
 
 	<properties>
 		<lib.directory>lib</lib.directory>
 
-		<swt.version>4.5.2</swt.version>
-		<spring-boot-loader.version>1.3.3.RELEASE</spring-boot-loader.version>
+		<swt.version>4.6</swt.version>
+		<spring-boot-loader.version>1.3.6.RELEASE</spring-boot-loader.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
