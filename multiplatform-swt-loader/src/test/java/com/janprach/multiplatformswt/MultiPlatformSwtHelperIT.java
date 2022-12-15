@@ -1,38 +1,38 @@
 package com.janprach.multiplatformswt;
 
-import static org.junit.Assert.*;
+import com.janprach.multiplatformswt.loader.MultiPlatformSwtHelper;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-import org.junit.Test;
-
-import com.janprach.multiplatformswt.loader.MultiPlatformSwtHelper;
-
 public class MultiPlatformSwtHelperIT {
 	private static final String SOME_SWT_CLASS_NAME = "org.eclipse.swt.SWT";
 
-	@Test(expected = ClassNotFoundException.class)
-	public void importSwtJarUninitializedSystemClassLoaderTest() throws ClassNotFoundException {
-		final URLClassLoader systemClassLoader = (URLClassLoader) ClassLoader.getSystemClassLoader();
-		systemClassLoader.loadClass(SOME_SWT_CLASS_NAME);
+	@Test
+	public void importSwtJarUninitializedSystemClassLoaderTest() {
+		Assertions.assertThrows(ClassNotFoundException.class, () -> {
+			ClassLoader.getSystemClassLoader().loadClass(SOME_SWT_CLASS_NAME);
+		});
 	}
 
-	@Test(expected = ClassNotFoundException.class)
-	public void importSwtJarUninitializedURLClassLoaderTest() throws ClassNotFoundException, IOException {
-		final URL swtJarUrl = new URL("file:/non-existing-path");
-		try (final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[]{swtJarUrl})) {
-			urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
-		}
+	@Test
+	public void importSwtJarUninitializedURLClassLoaderTest() {
+		Assertions.assertThrows(ClassNotFoundException.class, () -> {
+			final URL swtJarUrl = new URL("file:/non-existing-path");
+			try (final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[]{swtJarUrl})) {
+				urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
+			}
+		});
 	}
 
 	@Test
 	public void importSwtJarInitializedURLClassLoaderTest() throws ClassNotFoundException, IOException {
 		final URL swtJarUrl = MultiPlatformSwtHelper.getSwtPlatformDependentJarFileUrl();
 		try (final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[]{swtJarUrl})) {
-			final Class<?> someSwtClass = urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
-			assertNotNull(someSwtClass);
+			Assertions.assertNotNull(urlClassLoader.loadClass(SOME_SWT_CLASS_NAME));
 		}
 	}
 }

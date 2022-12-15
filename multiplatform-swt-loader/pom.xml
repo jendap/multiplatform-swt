@@ -32,9 +32,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.9.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -115,13 +115,18 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M7</version>
+			</plugin>
 			<!-- Testing multiplatform swt jar has to be done after packaging. -->
 			<!-- Hence they run in verify phase using failsafe plugin. You don't -->
 			<!-- need to copy this to your project. -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.19.1</version>
+				<version>3.0.0-M7</version>
 				<configuration>
 					<workingDirectory>${project.build.directory}</workingDirectory>
 					<additionalClasspathElements>
@@ -130,10 +135,6 @@
 					<classpathDependencyExcludes>
 						<classpathDependencyExclude>org.eclipse.platform:*</classpathDependencyExclude>
 					</classpathDependencyExcludes>
-					<systemProperties>
-						<name>SWT-Version</name>
-						<value>${swt.version}</value>
-					</systemProperties>
 				</configuration>
 				<executions>
 					<execution>
