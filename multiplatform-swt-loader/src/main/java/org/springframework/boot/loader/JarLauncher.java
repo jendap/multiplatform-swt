@@ -41,7 +41,7 @@ import com.janprach.multiplatformswt.loader.MultiPlatformSwtHelper;
  * would be to tell spring-boot-maven-plugin to use different main class (the
  * real 'Main-Class' class as written in MANIFEST.MF). Even better would be to
  * be able to register some sort of listener adding our functionality to
- * spring-boot-loader. However neither of the two options are (currently)
+ * spring-boot-loader. However, neither of the two options are (currently)
  * supported.
  */
 public class JarLauncher extends ExecutableArchiveLauncher {
@@ -55,7 +55,7 @@ public class JarLauncher extends ExecutableArchiveLauncher {
 	}
 
 	@Override
-	protected void postProcessClassPathArchives(List<Archive> archives) throws Exception {
+	protected void postProcessClassPathArchives(List<Archive> archives) {
 		archives.add(0, getArchive());
 	}
 

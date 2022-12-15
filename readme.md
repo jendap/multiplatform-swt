@@ -41,7 +41,7 @@ mvn install
 How it works
 ------------
 
-It create one jar with your application. See
+It creates one jar with your application. See
 [spring-boot-maven-plugin](http://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html)
 for details. This plugin will also copy into the parent jar content of
 [spring-boot-loader](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-loader).
@@ -59,8 +59,8 @@ Notes
 
 * Feel free to add and modify `WarLauncher` and/or `PropertesLauncher` in similar fashion.
 * At development time the swt jar files are switched by maven plugins. Our customized
-  `JarLauncher` kicks in spring-boot-maven-plugin builded jar file.
-* Eclise
+  `JarLauncher` kicks in spring-boot-maven-plugin built jar file.
+* Eclipse
   - It works out of the box on newer Eclipse (at least on Luna)
   - Older Eclipse you may need to activate one of the profiles manually
     - Go to `project properties`
@@ -93,8 +93,8 @@ Notes
 
 It's a very bad idea. Building multiplatform project with platform dependent stuff? Bad.
 
-Anyway you may need it. For example you may have some ridiculous feature for your enterprise
-customer. You need some technology like OLE for it. Of course you don't need it as a developer.
+Anyway you may need it. For example, you may have some ridiculous feature for your enterprise
+customer. You need some technology like OLE for it. Of course, you don't need it as a developer.
 You may be using something like jenkins on linux for ci and release builds. If that's your case
 use manual profile selection to override the automatic platform selection, use:
 ```bash
@@ -102,5 +102,5 @@ use manual profile selection to override the automatic platform selection, use:
 ```
 
 It will work. You will build one package that will run on your dev machine - linux/windows.
-However when you try to call or just load a class with that platform dependent feature (like OLE)
+However, when you try to call or just load a class with that platform dependent feature (like OLE)
 you'll get ClassNotFoundException.

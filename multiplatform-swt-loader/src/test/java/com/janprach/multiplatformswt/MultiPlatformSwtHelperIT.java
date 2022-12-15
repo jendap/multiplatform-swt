@@ -2,7 +2,7 @@ package com.janprach.multiplatformswt;
 
 import static org.junit.Assert.*;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
 
@@ -20,17 +20,19 @@ public class MultiPlatformSwtHelperIT {
 	}
 
 	@Test(expected = ClassNotFoundException.class)
-	public void importSwtJarUninitializedURLClassLoaderTest() throws ClassNotFoundException, MalformedURLException {
+	public void importSwtJarUninitializedURLClassLoaderTest() throws ClassNotFoundException, IOException {
 		final URL swtJarUrl = new URL("file:/non-existing-path");
-		final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[] { swtJarUrl });
-		urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
+		try (final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[]{swtJarUrl})) {
+			urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
+		}
 	}
 
 	@Test
-	public void importSwtJarInitializedURLClassLoaderTest() throws ClassNotFoundException, MalformedURLException {
+	public void importSwtJarInitializedURLClassLoaderTest() throws ClassNotFoundException, IOException {
 		final URL swtJarUrl = MultiPlatformSwtHelper.getSwtPlatformDependentJarFileUrl();
-		final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[] { swtJarUrl });
-		final Class<?> someSwtClass = urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
-		assertNotNull(someSwtClass);
+		try (final URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[]{swtJarUrl})) {
+			final Class<?> someSwtClass = urlClassLoader.loadClass(SOME_SWT_CLASS_NAME);
+			assertNotNull(someSwtClass);
+		}
 	}
 }
