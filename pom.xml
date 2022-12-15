@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.janprach.multiplatform-swt</groupId>
 	<artifactId>multiplatform-swt</artifactId>
-	<version>4.5.2</version>
+	<version>3.122.0</version>
 	<packaging>pom</packaging>
 
 	<name>multiplatform-swt</name>
@@ -14,10 +14,6 @@
 		<module>multiplatform-swt-loader</module>
 		<module>multiplatform-swt-example</module>
 	</modules>
-
-	<prerequisites>
-		<maven>3.2</maven>
-	</prerequisites>
 
 	<scm>
 		<url>https://github.com/jendap/multiplatform-swt.git</url>

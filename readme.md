@@ -1,11 +1,13 @@
 Multiplatform SWT
 ==================
 
-This project show how to make multiplatform swt project using maven without osgi. Linux and
-windows are supported in both 32-bit and 64 bit versions, macosx has only 64 bit support.
+This project show how to make multiplatform swt project using maven without osgi.
+Linux, windows and macosx are supported (64 bit versions only).
 
-You are advised to use tycho to build swt based projects! Not this approach. That way you can reuse
-all the other eclipse plugins. But this approach is sometimes better.
+Note: Check other options of using swt. There used to be `tycho` project.
+It was modularized eclipse platform. It allowed to reuse all plugins
+of eclipse ecosystem. But that was some years back. There may be other
+recommended ways these days.
 
 
 Try it
@@ -32,7 +34,6 @@ mvn install
   (The whole file except the header - first 10 liens or so.)
   - Copy the `dependencies` including scopes and classifiers
   - Copy `maven-dependency-plugin` and `spring-boot-maven-plugin` sections with their configurations
-  - Copy `repositories` section
   - Copy `profiles` section
 * Change your main.class property.
 
@@ -65,7 +66,7 @@ Notes
     - Go to `project properties`
     - Select `maven`
     - Add your profile name to `Active Maven Profiles`
-      (i.e. add one of linux32, linux64, macosx32, macosx64, win32 or win64)
+      (i.e. add one of linux, macosx or windows)
 * This project used simple rsrc loader copied out of eclipse before. It used
   reverse findClass order in custom classloader. It was awkward. `spring-boot-loader`
   is fundamentally better. If you look for the old version - see branch
@@ -85,7 +86,7 @@ Notes
 * It would be nice to use maven extension for platform variables instead of the many profiles
   one has to copy. See https://github.com/trustin/os-maven-plugin. But we would have to rename
   the jar files first or modify the plugin so that strings would match the swt naming
-  (osx => macosx, x86_32 => x86 and windows => win32).
+  (osx => macosx and windows => win).
 
 
 #### Building platform dependent stuff
@@ -97,7 +98,7 @@ customer. You need some technology like OLE for it. Of course you don't need it 
 You may be using something like jenkins on linux for ci and release builds. If that's your case
 use manual profile selection to override the automatic platform selection, use:
 ```bash
--P win32,!win64,!linux32,!linux64,!macosx32,!macosx64
+-P windows,!linux,!macosx
 ```
 
 It will work. You will build one package that will run on your dev machine - linux/windows.

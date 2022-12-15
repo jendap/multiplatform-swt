@@ -3,21 +3,21 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.janprach.multiplatform-swt</groupId>
 	<artifactId>multiplatform-swt-example</artifactId>
-	<version>4.6</version>
+	<version>3.122.0</version>
 
 	<properties>
 		<main.class>com.janprach.multiplatformswt.example.SwtHelloWorld</main.class>
 
-		<swt.version>4.6</swt.version>
+		<swt.version>3.122.0</swt.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.eclipse.swt</groupId>
+			<groupId>org.eclipse.platform</groupId>
 			<artifactId>${swt.artifactId}</artifactId>
 			<version>${swt.version}</version>
 			<scope>provided</scope>
@@ -60,7 +60,7 @@
 					<mainClass>${main.class}</mainClass>
 					<excludes>
 						<exclude>
-							<groupId>org.eclipse.swt</groupId>
+							<groupId>org.eclipse.platform</groupId>
 							<artifactId>${swt.artifactId}</artifactId>
 						</exclude>
 					</excludes>
@@ -114,19 +114,7 @@
 	<!-- different profile by maven's command line argument -P -->
 	<profiles>
 		<profile>
-			<id>linux32</id>
-			<activation>
-				<os>
-					<family>linux</family>
-					<arch>i386</arch>
-				</os>
-			</activation>
-			<properties>
-				<swt.artifactId>org.eclipse.swt.gtk.linux.x86</swt.artifactId>
-			</properties>
-		</profile>
-		<profile>
-			<id>linux64</id>
+			<id>linux</id>
 			<activation>
 				<os>
 					<family>linux</family>
@@ -138,7 +126,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>macosx64</id>
+			<id>macosx</id>
 			<activation>
 				<os>
 					<family>macosx</family>
@@ -150,19 +138,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>win32</id>
-			<activation>
-				<os>
-					<family>windows</family>
-					<arch>x86</arch>
-				</os>
-			</activation>
-			<properties>
-				<swt.artifactId>org.eclipse.swt.win32.win32.x86</swt.artifactId>
-			</properties>
-		</profile>
-		<profile>
-			<id>win64</id>
+			<id>windows</id>
 			<activation>
 				<os>
 					<family>windows</family>
@@ -174,13 +150,4 @@
 			</properties>
 		</profile>
 	</profiles>
-
-	<repositories>
-		<!-- There's no official public maven eclipse repository yet. Leon Blakey -->
-		<!-- has created https://github.com/maven-eclipse/maven-eclipse.github.io. -->
-		<repository>
-			<id>maven-eclipse-repo</id>
-			<url>http://maven-eclipse.github.io/maven</url>
-		</repository>
-	</repositories>
 </project>
