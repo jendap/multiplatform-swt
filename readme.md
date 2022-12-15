@@ -98,7 +98,7 @@ customer. You need some technology like OLE for it. Of course you don't need it 
 You may be using something like jenkins on linux for ci and release builds. If that's your case
 use manual profile selection to override the automatic platform selection, use:
 ```bash
--P windows,!linux,!macosx
+-P windows,!linux,!linux-aarch64!macosx
 ```
 
 It will work. You will build one package that will run on your dev machine - linux/windows.

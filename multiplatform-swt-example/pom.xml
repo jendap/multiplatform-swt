@@ -126,6 +126,18 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>linux-aarch64</id>
+			<activation>
+				<os>
+					<family>linux</family>
+					<arch>aarch64</arch>
+				</os>
+			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.gtk.linux.aarch64</swt.artifactId>
+			</properties>
+		</profile>
+		<profile>
 			<id>macosx</id>
 			<activation>
 				<os>

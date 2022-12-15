@@ -77,6 +77,11 @@
 								</artifactItem>
 								<artifactItem>
 									<groupId>org.eclipse.platform</groupId>
+									<artifactId>org.eclipse.swt.gtk.linux.aarch64</artifactId>
+									<version>${swt.version}</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.eclipse.platform</groupId>
 									<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
 									<version>${swt.version}</version>
 								</artifactItem>
@@ -160,6 +165,18 @@
 			</activation>
 			<properties>
 				<swt.artifactId>org.eclipse.swt.gtk.linux.x86_64</swt.artifactId>
+			</properties>
+		</profile>
+		<profile>
+			<id>linux-aarch64</id>
+			<activation>
+				<os>
+					<family>linux</family>
+					<arch>aarch64</arch>
+				</os>
+			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.gtk.linux.aarch64</swt.artifactId>
 			</properties>
 		</profile>
 		<profile>
