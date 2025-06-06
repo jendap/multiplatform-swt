@@ -8,7 +8,7 @@ One jar to run on all platforms using just maven without osgi or tycho.
 Try it
 ------
 
-``` bash
+```bash
 git clone https://github.com/jendap/multiplatform-swt.git
 cd multiplatform-swt
 mvn package -Pmultiplatform
@@ -35,9 +35,9 @@ How it works
 This project builds on top of the great
 [spring-boot-maven-plugin](http://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html).
 We create custom
-[MultiPlatformJarLayout](multiplatform-swt-loader/src/main/java/com/github/jendap/multiplatformswt/MultiPlatformJarLayout.java)
+[MultiPlatformJarLayout](multiplatform-swt-loader/src/main/java/com/github/jendap/multiplatformswt/build/MultiPlatformJarLayout.java)
 to add our own
-[MultiPlatformJarLauncher](multiplatform-swt-loader/src/main/java/com/github/jendap/multiplatformswt/MultiPlatformJarLauncher.java).
+[MultiPlatformJarLauncher](multiplatform-swt-loader/src/main/java/com/github/jendap/multiplatformswt/runtime/MultiPlatformJarLauncher.java).
 The jar launcher implements `postProcessClassPathArchives` to remove
 undesirable jars from classpath.
 
@@ -48,7 +48,7 @@ when building the jar. See `multiplatform` profile in
 
 The actual logic of system properties `os.name` and `os.arch`
 mapping to eclipse jar file names is in
-[MultiPlatformJarNaming](multiplatform-swt-loader/src/main/java/com/github/jendap/multiplatformswt/MultiPlatformJarNaming.java).
+[MultiPlatformJarNaming](multiplatform-swt-loader/src/main/java/com/github/jendap/multiplatformswt/runtime/MultiPlatformJarNaming.java).
 
 
 Notes
