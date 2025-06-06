@@ -9,7 +9,7 @@
     <artifactId>multiplatform-swt-example</artifactId>
 
     <properties>
-        <main.class>com.github.jendap.multiplatformswt.example.SwtHelloWorld</main.class>
+        <main.class>com.github.jendap.multiplatformswt.examples.SwtHelloWorld</main.class>
 
         <multiplatform-swt.version>${project.version}</multiplatform-swt.version>
         <swt.version>3.129.0</swt.version>
