@@ -25,6 +25,9 @@ public class SwtAdvancedApp {
 
     public void run() {
         Display.setAppName(this.getClass().getName());
+        IconHack.writeIconFile(this.getClass());
+        IconHack.writeDesktopFile(this.getClass());
+//        IconHack.dangerouslyOverwriteDesktopFileTotalHack(this.getClass());
 
         final Display display = new Display();
         final Shell shell = new Shell(display);

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Multiplatform Swt Browser Example
+Comment=Example (Eclipse SWT) application packaged by maven into one big multiplatform jar.
+Exec=java -jar /full/path/to/multiplatform-swt-example-3.0.0-SNAPSHOT.jar
+Icon=com.github.jendap.multiplatformswt.examples.SwtAdvancedApp.svg
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupWMClass=com.github.jendap.multiplatformswt.examples.SwtAdvancedApp
