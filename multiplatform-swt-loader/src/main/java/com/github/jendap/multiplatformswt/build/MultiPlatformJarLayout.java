@@ -2,7 +2,6 @@ package com.github.jendap.multiplatformswt.build;
 
 import com.github.jendap.multiplatformswt.runtime.MultiPlatformJarLauncher;
 import com.github.jendap.multiplatformswt.runtime.MultiPlatformJarNaming;
-import com.github.jendap.multiplatformswt.runtime.NotCurrentPlatformPredicate;
 import org.springframework.boot.loader.tools.*;
 
 import java.io.IOException;
@@ -22,7 +21,6 @@ public class MultiPlatformJarLayout extends Layouts.Jar implements CustomLoaderL
         writer.writeLoaderClasses();
         // copy our own multiplatform-swt runtime classes
         writeLoadedClass(writer, MultiPlatformJarLauncher.class);
-        writeLoadedClass(writer, NotCurrentPlatformPredicate.class);
         writeLoadedClass(writer, MultiPlatformJarNaming.class);
         // add platform specific eclipse jars from dependencies section of spring-boot-maven-plugin
         writePlatformEclipseJars(writer);
