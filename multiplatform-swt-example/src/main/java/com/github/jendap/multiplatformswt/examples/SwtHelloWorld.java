@@ -9,6 +9,7 @@ import org.eclipse.swt.widgets.*;
 
 public class SwtHelloWorld {
     public static void main(final String[] args) {
+        Display.setAppName(SwtHelloWorld.class.getName());
         var display = new Display();
         var shell = new Shell(display);
         shell.setText("Multiplatform Swt Example");

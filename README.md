@@ -58,3 +58,7 @@ Notes
   eclipse platform. It allowed to reuse all plugins of eclipse ecosystem. But that was
   some years back. There may be other recommended ways these days.
 * Feel free to add `WarLauncher` and/or `PropertesLauncher` in similar fashion.
+* Calling `Display.setAppName(this.getClass().getName());` before anything else will set
+  `WM_CLASS` on `linux`. That can be matched with `StartupWMClass`
+  in [*.desktop](https://specifications.freedesktop.org/desktop-entry-spec/latest/recognized-keys.html)
+  file. Use it to get icons for your app.
