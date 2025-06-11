@@ -13,7 +13,7 @@
         <!--<main.class>com.github.jendap.multiplatformswt.examples.SwtAdvancedApp</main.class>-->
 
         <multiplatform-swt.version>${project.version}</multiplatform-swt.version>
-        <swt.version>3.129.0</swt.version>
+        <swt.version>3.130.0</swt.version>
     </properties>
 
     <dependencies>
@@ -30,7 +30,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.3.2</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <goals>
