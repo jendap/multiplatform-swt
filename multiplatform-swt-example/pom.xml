@@ -21,7 +21,6 @@
             <groupId>org.eclipse.platform</groupId>
             <artifactId>${swt.artifactId}</artifactId>
             <version>${swt.version}</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
